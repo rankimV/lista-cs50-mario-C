@@ -1,0 +1,32 @@
+#include <stdio.h> // Tiramos a cs50.h e deixamos só a padrão
+
+int main(void)
+{
+    int h;
+    do
+    {
+        // No C padrão, primeiro mostramos o texto e depois lemos o teclado
+        printf("altura: ");
+        scanf("%i", &h); // O %i lê o inteiro e o &h guarda na memória
+    }  
+    while (h < 1 || h > 8);
+
+    // Criação da pirâmide (Sua lógica está perfeita aqui!)
+    for (int i = 0; i < h; i++)
+    {
+        for (int j = 0; j < h; j++)
+        {
+            if (i + j < h - 1)
+            {
+                printf(" ");
+            }
+            else
+            {
+                printf("#");
+            }
+        }
+        printf("\n");
+    }
+    
+    return 0;
+}

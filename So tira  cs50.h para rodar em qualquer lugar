@@ -1,0 +1,45 @@
+#include <stdio.h> // 
+
+int main(void)
+{
+    int altura;
+    do
+    {
+        // No C padrão, primeiro mostramos o texto e depois lemos o teclado
+        printf("Altura: ");
+        scanf("%i", &altura);
+    }
+    while (altura < 1 || altura > 8);
+
+    // Loop para cada linha da pirâmide
+    for (int i = 0; i < altura; i++)
+    {
+        // 1. LADO ESQUERDO: Espaços e Hashtags
+        for (int j = 0; j < altura; j++)
+        {
+            if (i + j < altura - 1)
+            {
+                printf(" ");
+            }
+            else
+            {
+                printf("#");
+            }
+        }
+
+        // 2. O MEIO: Os 2 espaços que dividem a pirâmide
+        printf("  ");
+
+        // 3. LADO DIREITO: Imprime as hashtags alinhadas à esquerda
+        // O número de hashtags na linha é sempre igual a (i + 1)
+        for (int j = 0; j <= i; j++)
+        {
+            printf("#");
+        }
+
+        // Pula para a próxima linha
+        printf("\n");
+    }
+    
+    return 0;
+}

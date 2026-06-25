@@ -1,0 +1,62 @@
+#include <stdio.h>
+#include <math.h> // mantiver a math.h para usar a função round()
+
+float change(void);
+
+int main(void)
+{
+    // Transforma o valor digitado em centavos
+    float reais = change();
+    int centavos = round(reais * 100);
+
+    // Variável de controle das moedas
+    int v = 0;
+
+    // Moedas de 25 centavos
+    while (centavos >= 25)
+    {
+        centavos = centavos - 25;
+        v = v + 1;
+    }
+
+    // Moedas de 10 centavos
+    while (centavos >= 10)
+    {
+        centavos = centavos - 10;
+        v = v + 1;
+    }
+
+    // Moedas de 5 centavos
+    while (centavos >= 5)
+    {
+        centavos = centavos - 5;
+        v = v + 1;
+    }
+
+    // Moedas de 1 centavo
+    while (centavos > 0)
+    {
+        centavos = centavos - 1;
+        v = v + 1;
+    }
+
+    // Mostra o total de moedas usadas
+    printf("%i\n", v);
+
+    return 0;
+}
+
+// Obtém o valor do troco usando o C padrão
+float change(void)
+{
+    float c;
+
+    do
+    {
+        printf("Informe o troco: ");
+        scanf("%f", &c); // Lê o valor quebrado do teclado
+    }
+    while (c < 0);
+
+    return c;
+}

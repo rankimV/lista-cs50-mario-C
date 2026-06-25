@@ -1,0 +1,41 @@
+#include <stdio.h>
+
+int main(void)
+{
+    int pop_inicial;
+    int pop_final;
+    
+    // Solicita a população inicial (mínimo 9)
+    do
+    {
+        printf("Start Size: ");
+        scanf("%i", &pop_inicial);
+    }
+    while (pop_inicial < 9);
+    
+    // Solicita a população final (não pode ser menor que a inicial)
+    do
+    {
+        printf("End Size: ");
+        scanf("%i", &pop_final);
+    }
+    while (pop_final < pop_inicial); // Removida a linha com erro que estava logo acima aqui
+    
+    // Contador de anos
+    int cont = 0;
+    
+    // Calcula quantos anos leva para atingir a meta
+    for (cont = 0; pop_inicial < pop_final; cont++)
+    {
+        int pop_nascida = pop_inicial / 3;
+        int pop_morta = pop_inicial / 4;
+        
+        pop_inicial += pop_nascida;
+        pop_inicial -= pop_morta;
+    }
+    
+    // Mostra o resultado final pulando linha no fim (\n)
+    printf("Years: %i\n", cont);
+    
+    return 0;
+}
